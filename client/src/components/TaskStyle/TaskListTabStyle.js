@@ -1,11 +1,14 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Col from "react-bootstrap/Col";
 import ListGroup from "react-bootstrap/ListGroup";
 import Row from "react-bootstrap/Row";
 import Tab from "react-bootstrap/Tab";
 import Task from "../Task";
 const TaskListTabStyle = (props) => {
-  const [listToDo, setListToDo] = useState(props.toDoList);
+  const [listToDo, setListToDo] = useState([]);
+  useEffect(() => {
+    setListToDo(props.toDoList);
+  }, [props]);
   return (
     <Tab.Container id="list-group-tabs-example" defaultActiveKey="#link1">
       <Row>

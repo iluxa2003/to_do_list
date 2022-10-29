@@ -1,7 +1,10 @@
 import Accordion from "react-bootstrap/Accordion";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 const TaskListAccordionStyle = (props) => {
-  const [listToDo, setListToDo] = useState(props.items);
+  const [listToDo, setListToDo] = useState([]);
+  useEffect(() => {
+    setListToDo(props.items);
+  }, [props]);
   return (
     <Accordion defaultActiveKey="0">
       {listToDo.map((item) => {
